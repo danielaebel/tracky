@@ -33,7 +33,7 @@ export default function MeasurementsFinished() {
   };
 
   return (
-    <div className="flex flex-col items-start h-screen bg-white max-w-[402px] mx-auto">
+    <div className="flex flex-col items-start h-screen bg-white max-w-[402px] mx-auto w-full">
       <TopBar title="Körpermaße" />
       <ProgressBar total={settings.bodyParts.length} current={settings.bodyParts.length} />
 
@@ -45,9 +45,9 @@ export default function MeasurementsFinished() {
         </div>
 
         <div className="flex flex-col items-start gap-12 w-full">
-          <div className="flex items-center w-full overflow-x-auto">
-            <div className="flex flex-col items-start flex-1">
-              <div className="flex items-center gap-3 px-4 py-3 w-full border-b border-[#E9EAEB] bg-white">
+          <div className="flex items-start w-full gap-0 overflow-x-auto">
+            <div className="flex flex-col items-start min-w-[140px]">
+              <div className="flex items-center px-4 py-3 w-full border-b border-[#E9EAEB] bg-white">
                 <div className="text-black text-base leading-[22.4px]" style={{ fontFamily: 'Lexend' }}>
                   Bereich
                 </div>
@@ -64,8 +64,8 @@ export default function MeasurementsFinished() {
               })}
             </div>
 
-            <div className="flex flex-col items-center">
-              <div className="flex justify-center items-center gap-3 px-4 py-3 w-full border-b border-[#E9EAEB] bg-white">
+            <div className="flex flex-col items-center min-w-[90px]">
+              <div className="flex justify-center items-center px-4 py-3 w-full border-b border-[#E9EAEB] bg-white">
                 <div className="text-black text-base leading-[22.4px]" style={{ fontFamily: 'Lexend' }}>
                   Last
                 </div>
@@ -79,8 +79,8 @@ export default function MeasurementsFinished() {
               ))}
             </div>
 
-            <div className="flex flex-col items-center">
-              <div className="flex justify-center items-center gap-3 px-4 py-3 w-full border-b border-[#E9EAEB] bg-white">
+            <div className="flex flex-col items-center min-w-[100px]">
+              <div className="flex justify-center items-center px-4 py-3 w-full border-b border-[#E9EAEB] bg-white">
                 <div className="text-black text-base leading-[22.4px]" style={{ fontFamily: 'Lexend' }}>
                   All-Time
                 </div>
@@ -99,9 +99,9 @@ export default function MeasurementsFinished() {
         <div className="flex flex-col justify-center items-center gap-6 w-full">
           <button
             onClick={() => navigate('/history')}
-            className="flex justify-center items-center gap-1.5 w-full px-6 py-4.5 rounded-lg border border-[#D5D7DA] bg-white"
+            className="flex justify-center items-center gap-1.5 w-full px-6 py-[18px] rounded-lg border border-[#D5D7DA] bg-white"
           >
-            <div className="text-[#414651] text-lg font-normal leading-6" style={{ fontFamily: 'Lexend' }}>
+            <div className="text-[#414651] text-lg font-medium leading-6" style={{ fontFamily: 'Lexend' }}>
               Entwicklung ansehen
             </div>
           </button>

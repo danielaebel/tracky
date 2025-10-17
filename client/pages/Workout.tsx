@@ -58,7 +58,7 @@ export default function Workout() {
   };
 
   return (
-    <div className="flex flex-col items-start h-screen bg-white max-w-[402px] mx-auto">
+    <div className="flex flex-col items-start h-screen bg-white max-w-[402px] mx-auto w-full">
       <TopBar title="Workout" />
       <ProgressBar total={exercises.length} current={currentIndex + 1} />
 
@@ -71,7 +71,7 @@ export default function Workout() {
 
         <div className="flex flex-col items-start gap-12 flex-1 w-full">
           <div className="flex justify-center items-center w-full">
-            <button onClick={decrement} className="flex items-center justify-center w-20 h-20 p-4.5 rounded-lg">
+            <button onClick={decrement} className="flex items-center justify-center w-20 h-20 p-4.5 rounded-lg flex-shrink-0">
               <Minus size={44} strokeWidth={2} className="text-black" />
             </button>
 
@@ -87,7 +87,7 @@ export default function Workout() {
               </div>
             </div>
 
-            <button onClick={increment} className="flex items-center justify-center w-20 h-20 p-4.5 rounded-lg">
+            <button onClick={increment} className="flex items-center justify-center w-20 h-20 p-4.5 rounded-lg flex-shrink-0">
               <Plus size={44} strokeWidth={2} className="text-black" />
             </button>
           </div>
@@ -98,10 +98,10 @@ export default function Workout() {
             {!isLastExercise && (
               <button
                 onClick={handleNext}
-                className="flex justify-center items-center gap-1.5 w-full px-6 py-4.5 rounded-lg"
+                className="flex justify-center items-center w-full px-6 py-[18px] rounded-lg"
                 style={{ background: '#7F56D9' }}
               >
-                <div className="text-white text-lg font-normal leading-6" style={{ fontFamily: 'Lexend' }}>
+                <div className="text-white text-lg font-medium leading-6" style={{ fontFamily: 'Lexend' }}>
                   Weiter
                 </div>
               </button>
@@ -109,9 +109,9 @@ export default function Workout() {
 
             <button
               onClick={handleEnd}
-              className="flex justify-center items-center gap-1.5 w-full px-6 py-4.5 rounded-lg border border-[#D5D7DA] bg-white"
+              className="flex justify-center items-center w-full px-6 py-[18px] rounded-lg border border-[#D5D7DA] bg-white"
             >
-              <div className="text-[#414651] text-lg font-normal leading-6" style={{ fontFamily: 'Lexend' }}>
+              <div className="text-[#414651] text-lg font-medium leading-6" style={{ fontFamily: 'Lexend' }}>
                 Workout beenden
               </div>
             </button>
