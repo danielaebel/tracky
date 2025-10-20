@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { useApp, Exercise, BodyPart } from '@/contexts/AppContext';
+import { useApp } from '@/contexts/AppContext';
 import TopBar from '@/components/TopBar';
 import BottomNav from '@/components/BottomNav';
 import { GripVertical, Plus, X } from 'lucide-react';
+import { toast } from '@/components/ui/sonner';
 
 export default function Settings() {
   const { settings, updateSettings } = useApp();
@@ -10,6 +11,7 @@ export default function Settings() {
   const [newBodyPart, setNewBodyPart] = useState('');
   const [draggedExercise, setDraggedExercise] = useState<string | null>(null);
   const [draggedBodyPart, setDraggedBodyPart] = useState<string | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleAddExercise = () => {
     if (newExercise.trim()) {
@@ -53,6 +55,19 @@ export default function Settings() {
     const newBodyParts = [...settings.bodyParts];
     [newBodyParts[fromIndex], newBodyParts[toIndex]] = [newBodyParts[toIndex], newBodyParts[fromIndex]];
     updateSettings({ bodyParts: newBodyParts });
+  };
+
+  const handleSave = async () => {
+    setIsSaving(true);
+    try {
+      // Simulate a brief save delay to make the notification feel more meaningful
+      await new Promise(resolve => setTimeout(resolve, 300));
+      toast.success('Einstellungen erfolgreich gespeichert!');
+    } catch (error) {
+      toast.error('Fehler beim Speichern der Einstellungen');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -198,12 +213,13 @@ export default function Settings() {
           )}
 
           <button
-            onClick={() => {}}
-            className="flex justify-center items-center gap-1.5 w-full px-6 py-[18px] rounded-lg mt-6"
+            onClick={handleSave}
+            disabled={isSaving}
+            className="flex justify-center items-center gap-1.5 w-full px-6 py-[18px] rounded-lg mt-6 disabled:opacity-75"
             style={{ background: '#7F56D9' }}
           >
             <div className="text-white text-lg font-medium leading-6" style={{ fontFamily: 'Lexend' }}>
-              Speichern
+              {isSaving ? 'Speichern...' : 'Speichern'}
             </div>
           </button>
         </div>

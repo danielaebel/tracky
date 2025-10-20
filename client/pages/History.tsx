@@ -76,7 +76,7 @@ export default function History() {
             </div>
           ) : (
             <div className="flex items-start w-full gap-0 overflow-x-auto">
-              <div className="flex flex-col items-start min-w-[140px]">
+              <div className="flex flex-col items-start min-w-[140px] flex-shrink-0">
                 <div className="flex items-center px-6 py-3 w-full border-b border-[#E9EAEB] bg-white">
                   <div className="text-black text-base leading-[25.2px]" style={{ fontFamily: 'Lexend' }}>
                     Datum
@@ -91,8 +91,8 @@ export default function History() {
                 ))}
               </div>
 
-              {settings.bodyParts.slice(0, 3).map((bodyPart) => (
-                <div key={bodyPart.id} className="flex flex-col items-center min-w-[100px]">
+              {settings.bodyParts.map((bodyPart) => (
+                <div key={bodyPart.id} className="flex flex-col items-center min-w-[100px] flex-shrink-0">
                   <div className="flex justify-center items-center px-4 py-3 w-full border-b border-[#E9EAEB] bg-white">
                     <div className="text-black text-base leading-[25.2px]" style={{ fontFamily: 'Lexend' }}>
                       {bodyPart.name}
