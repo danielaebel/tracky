@@ -3,7 +3,7 @@ import { useApp } from '@/contexts/AppContext';
 import TopBar from '@/components/TopBar';
 import BottomNav from '@/components/BottomNav';
 import { GripVertical, Plus, X } from 'lucide-react';
-import { toast } from '@/components/ui/sonner';
+import { toast } from 'sonner';
 
 export default function Settings() {
   const { settings, updateSettings } = useApp();
