@@ -57,8 +57,12 @@ export default function Measurements() {
   const decrement = () => setValue(v => Math.max(0, v - 1));
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = parseInt(e.target.value) || 0;
-    setValue(Math.max(0, val));
+    const inputValue = e.target.value;
+    // Only allow numeric input
+    if (inputValue === '' || /^\d+$/.test(inputValue)) {
+      const val = inputValue === '' ? 0 : parseInt(inputValue, 10);
+      setValue(val);
+    }
   };
 
   return (
@@ -82,7 +86,8 @@ export default function Measurements() {
             <div className="flex flex-col items-start min-w-[96px]">
               <div className="flex flex-col justify-center items-center gap-2 h-24 min-w-[96px] min-h-[96px] rounded-xl bg-white">
                 <input
-                  type="number"
+                  type="text"
+                  inputMode="numeric"
                   value={value}
                   onChange={handleInputChange}
                   className="flex flex-col justify-center flex-1 w-full text-black text-center text-[64px] leading-[72px] tracking-[3.2px] bg-transparent border-none outline-none"
