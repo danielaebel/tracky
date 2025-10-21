@@ -10,9 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-start h-screen bg-white max-w-[402px] mx-auto w-full">
       <div className="flex items-center gap-0 px-0 py-0 w-full border-b border-[#F5F5F5] bg-white">
-        <button className="flex items-center justify-center w-[60px] h-[60px] px-4.5 py-4.5 rounded-lg flex-shrink-0">
-          <ArrowLeft size={24} strokeWidth={2} className="text-[#A4A7AE]" />
-        </button>
+        <button className="flex items-center justify-center w-[60px] h-[60px] px-4.5 py-4.5 rounded-lg flex-shrink-0" />
         
         <div className="flex flex-col justify-center items-center flex-1 px-6">
           <div className="text-black text-center text-lg leading-normal font-normal" style={{ fontFamily: 'Lexend' }}>

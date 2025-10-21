@@ -17,7 +17,7 @@ export default function BottomNav() {
   const isActive = (path: string) => location.pathname.startsWith(path);
 
   return (
-    <div className="flex items-center bg-white border-t border-gray-100 w-full">
+    <div className="flex items-center justify-center bg-white border-t border-gray-100 w-full p-2">
       {tabs.map((tab) => {
         const Icon = tab.icon;
         const active = isActive(tab.path);
@@ -35,7 +35,7 @@ export default function BottomNav() {
               style={{ opacity: active ? 1 : 0.4 }}
             />
             <div className="flex items-center justify-center">
-              <div className="text-[#535862] text-xs leading-4" style={{ fontFamily: 'Lexend' }}>
+              <div className="text-[#535862] text-sm leading-4" style={{ fontFamily: 'Lexend' }}>
                 {tab.label}
               </div>
             </div>
